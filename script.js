@@ -70,7 +70,7 @@ function getContent(content) {
       if (item.type === "image") {
         return `<img src="${item.path}" style="position: absolute; top: ${item.top}; left: ${item.left}; width: ${item.width}; height: ${item.height};"/>`;
       } else if (item.type === "video") {
-        return `<video src="${item.path}" style="position: absolute; top: ${item.top}; left: ${item.left}; width: ${item.width}; height: ${item.height};" controls playsinline></video>`;
+        return `<video src="${item.path}" style="position: absolute; top: ${item.top}; left: ${item.left}; width: ${item.width}; height: ${item.height};" controls playsinline autoplay muted></video>`;
       }
     })
     .join("");
