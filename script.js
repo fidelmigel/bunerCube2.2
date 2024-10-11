@@ -61,6 +61,8 @@ function makeHTML() {
     "</div>";
 
   fusifyTag.innerHTML = htmlContent; // Вставляємо HTML-код куба в елемент <fusifytag>.
+
+  addButtonsToFace(); // Додаємо кнопки на передню грань.
 }
 
 function getContent(content) {
@@ -73,8 +75,37 @@ function getContent(content) {
         return `<video src="${item.path}" style="position: absolute; top: ${item.top}; left: ${item.left}; width: ${item.width}; height: ${item.height};" controls playsinline autoplay muted></video>`;
       }
     })
-    .join("");
-} // Об'єднуємо всі елементи контенту в один рядок.
+    .join(""); // Об'єднуємо всі елементи контенту в один рядок.
+}
+
+function addButtonsToFace() {
+  const frontFace = document.querySelector(".front"); // Отримуємо передню грань куба.
+
+  const playPauseButtonConfig = dataItems[0]["play-pause-button"]; // Конфігурація кнопки Play-Pause.
+  const soundButtonConfig = dataItems[0]["sound-button"]; // Конфігурація кнопки звуку.
+
+  /* // Створюємо кнопку Play-Pause.
+  let playPauseButton = document.createElement("img");
+  playPauseButton.src = playPauseButtonConfig.url; // Встановлюємо URL зображення.
+  playPauseButton.style.width = playPauseButtonConfig.width; // Встановлюємо ширину кнопки.
+  playPauseButton.style.height = playPauseButtonConfig.height; // Встановлюємо висоту кнопки.
+  playPauseButton.style.position = "absolute";
+  playPauseButton.style.bottom = "10px"; // Розташовуємо кнопку на відстані 10px від нижнього краю.
+  playPauseButton.style.left = "10px"; // Встановлюємо відступ зліва на 10px.
+  playPauseButton.style.cursor = "pointer"; // Робимо курсор на кнопці "pointer" (рука).
+  frontFace.appendChild(playPauseButton); // Додаємо кнопку на передню грань.
+
+  // Створюємо кнопку звуку.
+  let soundButton = document.createElement("img");
+  soundButton.src = soundButtonConfig.url; // Встановлюємо URL зображення для кнопки звуку.
+  soundButton.style.width = soundButtonConfig.width;
+  soundButton.style.height = soundButtonConfig.height;
+  soundButton.style.position = "absolute";
+  soundButton.style.bottom = "10px"; // Розташовуємо кнопку на відстані 10px від нижнього краю.
+  soundButton.style.right = "10px"; // Встановлюємо відступ справа на 10px.
+  soundButton.style.cursor = "pointer";
+  frontFace.appendChild(soundButton); // Додаємо кнопку звуку на передню грань.*/
+}
 
 function getValue(name, attr) {
   // Функція для отримання значення з атрибутів елемента за його назвою.
@@ -196,3 +227,39 @@ document.addEventListener("touchmove", function (e) {
   updateCubeRotation(); // Оновлюємо обертання куба.
   resetAutoRotate(); // Запускаємо таймер для автоматичного відновлення обертання.
 });
+// Налаштування стилів для кнопок Video.js за допомогою JavaScript
+const video = document.getElementById("myVideo");
+
+const playPauseButton = document.createElement("button");
+playPauseButton.textContent = "Play/Pause";
+playPauseButton.style.width = video.getAttribute("data-playpause-width");
+playPauseButton.style.height = video.getAttribute("data-playpause-height");
+playPauseButton.style.backgroundColor = video.getAttribute("data-playpause-bg");
+playPauseButton.style.color = video.getAttribute("data-playpause-color");
+playPauseButton.style.position = "absolute";
+playPauseButton.style.bottom = "10px";
+playPauseButton.style.left = "10px";
+document.body.appendChild(playPauseButton);
+
+const soundButton = document.createElement("button");
+soundButton.textContent = "Sound";
+soundButton.style.width = video.getAttribute("data-sound-width");
+soundButton.style.height = video.getAttribute("data-sound-height");
+soundButton.style.backgroundColor = video.getAttribute("data-sound-bg");
+soundButton.style.color = video.getAttribute("data-sound-color");
+soundButton.style.position = "absolute";
+soundButton.style.bottom = "10px";
+soundButton.style.right = "10px";
+document.body.appendChild(soundButton);
+
+playPauseButton.onclick = function () {
+  if (video.paused) {
+    video.play();
+  } else {
+    video.pause();
+  }
+};
+
+soundButton.onclick = function () {
+  video.muted = !video.muted;
+};

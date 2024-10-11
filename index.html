@@ -19,7 +19,7 @@
             "height": "30%",
             "top": "0%",
             "left": "0%",
-            "attributes": "playsinline"
+            "attributes": "playsinline autoplay muted"
           },
          { 
             "path": "images/fishandrise.png",
@@ -68,7 +68,7 @@
             "height": "50%",
             "top": "0%",
             "left": "0%",
-            "attributes": "playsinline"
+            "attributes": "playsinline autoplay muted"
           },
          { 
             "path": "images/tel.mp4",
@@ -77,7 +77,7 @@
             "height": "50%",
             "top": "50%",
             "left": "0%",
-            "attributes": "playsinline"
+            "attributes": "playsinline autoplay muted"
           }
         ]
       },
@@ -110,6 +110,24 @@
       reset-timeout="1000"
       rotation-direction="right"
     ></fusifytag>
+    <video
+      id="myVideo"
+      data-playpause-width="50px"
+      data-playpause-height="50px"
+      data-playpause-bg="#5D8AA8"
+      data-playpause-color="#FFF"
+      data-sound-width="50px"
+      data-sound-height="50px"
+      data-sound-bg="#5D8AA8"
+      data-sound-color="#FFF"
+      controls
+      playsinline
+      autoplay
+      muted
+    >
+      <source src="images/tel.mp4" type="video/mp4" />
+    </video>
+    <script src="https://vjs.zencdn.net/7.11.4/video.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
