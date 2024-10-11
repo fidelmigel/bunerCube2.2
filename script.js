@@ -83,28 +83,6 @@ function addButtonsToFace() {
 
   const playPauseButtonConfig = dataItems[0]["play-pause-button"]; // Конфігурація кнопки Play-Pause.
   const soundButtonConfig = dataItems[0]["sound-button"]; // Конфігурація кнопки звуку.
-
-  /* // Створюємо кнопку Play-Pause.
-  let playPauseButton = document.createElement("img");
-  playPauseButton.src = playPauseButtonConfig.url; // Встановлюємо URL зображення.
-  playPauseButton.style.width = playPauseButtonConfig.width; // Встановлюємо ширину кнопки.
-  playPauseButton.style.height = playPauseButtonConfig.height; // Встановлюємо висоту кнопки.
-  playPauseButton.style.position = "absolute";
-  playPauseButton.style.bottom = "10px"; // Розташовуємо кнопку на відстані 10px від нижнього краю.
-  playPauseButton.style.left = "10px"; // Встановлюємо відступ зліва на 10px.
-  playPauseButton.style.cursor = "pointer"; // Робимо курсор на кнопці "pointer" (рука).
-  frontFace.appendChild(playPauseButton); // Додаємо кнопку на передню грань.
-
-  // Створюємо кнопку звуку.
-  let soundButton = document.createElement("img");
-  soundButton.src = soundButtonConfig.url; // Встановлюємо URL зображення для кнопки звуку.
-  soundButton.style.width = soundButtonConfig.width;
-  soundButton.style.height = soundButtonConfig.height;
-  soundButton.style.position = "absolute";
-  soundButton.style.bottom = "10px"; // Розташовуємо кнопку на відстані 10px від нижнього краю.
-  soundButton.style.right = "10px"; // Встановлюємо відступ справа на 10px.
-  soundButton.style.cursor = "pointer";
-  frontFace.appendChild(soundButton); // Додаємо кнопку звуку на передню грань.*/
 }
 
 function getValue(name, attr) {
@@ -228,7 +206,8 @@ document.addEventListener("touchmove", function (e) {
   resetAutoRotate(); // Запускаємо таймер для автоматичного відновлення обертання.
 });
 // Налаштування стилів для кнопок Video.js за допомогою JavaScript
-const video = document.getElementById("myVideo");
+const video = document.querySelector("video");
+video.style.display = "none"; // Приховуємо відео
 
 const playPauseButton = document.createElement("button");
 playPauseButton.textContent = "Play/Pause";
