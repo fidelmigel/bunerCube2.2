@@ -70,11 +70,11 @@ function getContent(content) {
       if (item.type === "image") {
         return `<img src="${item.path}" style="position: absolute; top: ${item.top}; left: ${item.left}; width: ${item.width}; height: ${item.height};"/>`;
       } else if (item.type === "video") {
-        return `<video src="${item.path}" style="position: absolute; top: ${item.top}; left: ${item.left}; width: ${item.width}; height: ${item.height};" controls></video>`;
+        return `<video src="${item.path}" style="position: absolute; top: ${item.top}; left: ${item.left}; width: ${item.width}; height: ${item.height};" controls playsinline></video>`;
       }
     })
-    .join(""); // Об'єднуємо всі елементи контенту в один рядок.
-}
+    .join("");
+} // Об'єднуємо всі елементи контенту в один рядок.
 
 function getValue(name, attr) {
   // Функція для отримання значення з атрибутів елемента за його назвою.
