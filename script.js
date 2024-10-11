@@ -252,14 +252,27 @@ soundButton.style.bottom = "10px";
 soundButton.style.right = "10px";
 document.body.appendChild(soundButton);
 
+// Функція для пошуку всіх відео на гранях куба
+function getAllCubeVideos() {
+  return document.querySelectorAll(".cube video");
+}
+
+// Функція для керування Play/Pause
 playPauseButton.onclick = function () {
-  if (video.paused) {
-    video.play();
-  } else {
-    video.pause();
-  }
+  const videos = getAllCubeVideos(); // Отримуємо всі відео на гранях куба
+  videos.forEach((video) => {
+    if (video.paused) {
+      video.play();
+    } else {
+      video.pause();
+    }
+  });
 };
 
+// Функція для керування Mute/Unmute
 soundButton.onclick = function () {
-  video.muted = !video.muted;
+  const videos = getAllCubeVideos(); // Отримуємо всі відео на гранях куба
+  videos.forEach((video) => {
+    video.muted = !video.muted;
+  });
 };
